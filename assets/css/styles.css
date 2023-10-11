@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+:root{
+    font-family: 'Great Vibes', cursive;
+    background: url(/assets/parede.jpg);
+    background-size: cover;
+}
+
+.logo{
+    align-items: center;
+ 
+     font-size: 40px;
+     color: #131757;
+         text-shadow: 
+           -1px -1px 0 #ffffff, 
+           1px -1px 0 #ffffff, 
+           -1px 1px 0 #ffffff, 
+           1px 1px 0 #ffffff;
+  }
