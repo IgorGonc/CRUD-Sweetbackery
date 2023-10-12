@@ -5,18 +5,19 @@
     
     botao.addEventListener("click", function() {
 
-        let dadosCadastro = []
+        let dadosCadastro = JSON.parse(localStorage.getItem("dadosCadastro")) || []
+        
 
         const cadastro = {
             nProduto: document.querySelector("#nomeProduto").value,
             vproduto: document.querySelector("#valorProduto").value
             
         }
-  
-        console.log(cadastro)
 
         dadosCadastro.push(cadastro)
 
-        localStorage.setItem("cadastro", JSON.stringify(cadastro))
+        localStorage.setItem("dadosCadastro", JSON.stringify(dadosCadastro))
+        
+        window.location.href= "index.html"
     });
 
