@@ -9,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar produto</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
-
+    <script src="/assets/js/script.js" defer></script>
+    
 </head>
 <body>
     <header>
@@ -17,16 +18,21 @@
             <h1>SweetBackery</h1>
         </div>
 
-        <p>Preencha o campo de texto:</p>
-        <form>
+        <p>Preencha os campos para cadastro:</p>
+        <form id="form-cadastro">
             <label for="nomeProduto">Digite o nome do produto:</label>
             <input type="text" id="nomeProduto" name="nomeProduto">
 
-            <label for="campoTexto">Digite o valor do produto:</label>
-            <input type="text" id="campoTexto" name="campoTexto">
+            <label for="valorProduto">Digite o valor do produto:</label>
+            <input type="text" id="valorProduto" name="valorProduto">
+
+            <button type="button" id="btnCadastrar"> Cadastrar produto</button>
         </form>
 
-        <a href="/admin.html"><button> Cadastrar produto</button></a>
+        <div id="resultado"></div>
+
+        
+
     </header> 
 
 </body>
