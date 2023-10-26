@@ -1,26 +1,35 @@
-window.addEventListener("load", () => {
-    let dadosCadastro = JSON.parse(localStorage.getItem("dadosCadastro")) || []
+window.addEventListener("load", atualizar )
 
-    dadosCadastro.forEach(cadastro => criarCard(cadastro))
-})
+function atualizar(){
+    document.querySelector("#lista-tarefas").innerHTML = ""
+    let tarefas = JSON.parse(localStorage.getItem("tarefas")) || []
+    tarefas.forEach(tarefa => criarCard(tarefa))
+}
 
-function criarCard (cadastro){
+function criarCard(tarefa){
     const card = document.createElement("div")
+    card.classList.add("col", "s12", "m6", "l4")
 
-    card.innerHTML = `       <div class="logo">
-    <h1>SweetBackery</h1>
-</div>
+    card.innerHTML = `
+        <div class="card ${tarefa.concluida ? 'grey': ''}">
+            <div class="card-content">
+            <span class="card-title">${tarefa.titulo}</span>
+            <p>${tarefa.descricao}</p>
+            <span data-badge-caption="pontos" class="badge blue white-text">
+                ${tarefa.pontos}
+            </span>
+            </div>
+            <div class="card-action">
+            <a href="#" class="btn red" onClick="apagar(${tarefa.id})">
+                <i class="material-icons">delete</i>
+                </a>
+                <a href="#" class="btn green" onClick="concluir(${tarefa.id})">
+                    <i class="material-icons">check</i>
+                </a>
+            </div>
+        </div>
+    `
 
-<p>Preencha os campos para cadastro:</p>
-<form id="form-cadastro">
-    <label for="nomeProduto">Digite o nome do produto:</label>
-    <input type="text" id="nomeProduto" name="nomeProduto">
+    document.querySelector("#lista-tarefas").appendChild(card)
 
-    <label for="valorProduto">Digite o valor do produto:</label>
-    <input type="text" id="valorProduto" name="valorProduto">
-
-    <button type="button" id="btnCadastrar"> Cadastrar produto</button>
-</form>
-
-<div id="resultado"></div>`
 }
